@@ -27,16 +27,23 @@ $(call inherit-product, device/samsung/star2lte/device.mk)
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 2960
 TARGET_SCREEN_WIDTH := 1440
-TARGET_BOOT_ANIMATION_RES := 1440
+TARGET_BOOT_ANIMATION_RES := 1080
 
-## Inherit some common AOSP stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+## Inherit some common Spark-OS stuff
+$(call inherit-product, vendor/spark/config/common_full_phone.mk)
+
+# Spark flags
+TARGET_FACE_UNLOCK_SUPPORTED := true
+WITH_GAPPS := true
 
 ## Device identifier, this must come after all inclusions
-PRODUCT_NAME := aosp_star2lte
+PRODUCT_NAME := spark_star2lte
 PRODUCT_DEVICE := star2lte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G965F
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.spark.maintainer=thenist
